@@ -21,9 +21,8 @@ def maybe_download_parameters(fold=0, force_overwrite=False):
 
     assert 0 <= fold <= 4, "fold must be between 0 and 4"
 
-    # print(folder_with_parameter_files)
-
     if not os.path.isdir(folder_with_parameter_files):
+
         maybe_mkdir_p(folder_with_parameter_files)
 
     out_filename = get_params_fname(fold)
@@ -111,6 +110,9 @@ subfolders = subdirs  # I am tired of confusing those
 
 def maybe_mkdir_p(directory):
     splits = directory.split("/")[1:]
+    if splits ==[]:
+        splits = directory.split("\\")[1:]
+
     for i in range(0, len(splits)):
         if not os.path.isdir(os.path.join("/", *splits[:i+1])):
             os.mkdir(os.path.join("/", *splits[:i+1]))

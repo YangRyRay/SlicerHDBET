@@ -121,3 +121,11 @@ def run_hd_bet(mri_fnames, output_fnames, m_fname, mode="accurate",
                 print(mask_fname)
                 print(m_fname)
                 slicer.mrmlScene.RemoveNode(slicer.mrmlScene.RemoveNode(slicer.util.getFirstNodeByName(m_fname)))
+
+            logic = slicer.modules.volumerendering.logic()
+            volumeNode = slicer.util.getNode(out_fname)
+            displayNode = logic.CreateVolumeRenderingDisplayNode()
+            displayNode.UnRegister(logic)
+            slicer.mrmlScene.AddNode(displayNode)
+            volumeNode.AddAndObserveDisplayNodeID(displayNode.GetID())
+            logic.UpdateDisplayNodeFromVolumeNode(displayNode, volumeNode)
