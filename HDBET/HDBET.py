@@ -17,9 +17,9 @@ class HDBET(ScriptedLoadableModule):
     def __init__(self, parent):
         ScriptedLoadableModule.__init__(self, parent)
         self.parent.title = "HD-BET"
-        self.parent.categories = ["Masking"]
-        self.parent.dependencies = []
-        self.parent.contributors = ["John Doe (AnyWare Corp.)"]
+        self.parent.categories = ["Segmentation"]
+        self.parent.dependencies = ["PyTorch"]
+        self.parent.contributors = ["Raymond Yang (University of Massachusetts Boston), Lorainne Franke (University of Massachusetts Boston), Steve Pieper (Isomics Inc.), Daniel Haehn (University of Massachusetts Boston), Lipeng Ning (Brigham and Women's Hospital)"]
         self.parent.helpText = """ Module masks out brain from MRI scans"""
         self.parent.acknowledgementText = """Isensee F, Schell M, Tursunova I, Brugnara G, Bonekamp D, Neuberger U, Wick A, Schlemmer HP, Heiland S, Wick W,"
            "Bendszus M, Maier-Hein KH, Kickingereder P. Automated brain extraction of multi-sequence MRI using artificial"
